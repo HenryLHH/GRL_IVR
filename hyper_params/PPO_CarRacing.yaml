@@ -1,0 +1,59 @@
+
+agent:
+    gamma: 0.99
+
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    train_repeat: 2
+ 
+    gae_lambda: 0.95
+    clip_epsilon: 0.1
+    max_grad_norm: 0.5
+
+    Value_fn_coef: 0.5
+    entropy_coef: 0.01
+
+    state_normalizer: BaseNormalizer
+    ignore_done: true
+    reward_norm: ~
+    
+
+network:
+    actor_network: ActorProb2
+    actor_num_layer: 3
+    actor_dim_hidden: 128
+
+    r_critic_network: Critic
+    r_critic_num_layer: 3
+    r_critic_dim_hidden: 128
+    
+    c_critic_network: Critic
+    c_critic_num_layer: 3
+    c_critic_dim_hidden: 128
+
+env:
+    name: "CarRacing-v0"
+    num_env_train: 8 
+    num_env_test: 10
+
+trainer:
+    warmup_episode: 16
+    epoch: 25
+    step_per_epoch: 2400
+    collect_episode_per_step: 8
+    n_train_repeat: 2
+    batch_size: 64
+    test_episode: 10
+    replay_size: 100000
+
+    writer_dir: "exp/log"
+    model_dir: "exp/model"
+
+Lagrangian:
+    init_lr: 0.0
+    lambda_lr: 0.005
+    max_lambda_norm: 20.0
+
+misc:
+    seed: 100
+    cudaid: 0

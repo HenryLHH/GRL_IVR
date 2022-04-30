@@ -1,0 +1,8 @@
+*.pyc
+*.jpg
+*.pt
+
+!/Munit/outputs/Pong/checkpoints/gen_00050000.pt
+!/Munit/outputs/CarRacing/checkpoints/gen_00100000.pt
+
+exp/
